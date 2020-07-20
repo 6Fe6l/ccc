@@ -36,7 +36,7 @@ client.login(process.env.TOKEN);
 client.on('message', message => {
     if(message.author.bot || message.channel.type == "dm") return undefined;
     if(message.content.startsWith(prefix+'tag')){
-            if(message.author.id != 569861608344518660)return message.reply('Only '+client.users.get("569861608344518660")+' can use this command.')
+            if(message.author.id != 287898437058560000)return message.reply('Only '+client.users.get("287898437058560000")+' can use this command.')
 
         var args1 = message.content.split(" ").slice(1);
         var args = args1[0];
