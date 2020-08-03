@@ -1,6 +1,6 @@
 const Discord = require("discord.js");
 const myid = ['287898437058560000'];
-const prefix = ['&'];
+const prefix = ['$'];
 const cmd = require("node-cmd")
 const client = new Discord.Client();
 const moment = require("moment");
@@ -214,8 +214,3 @@ if (message.content.startsWith(prefix + "uptime")) {
 
 
 
-
-client.on('ready', () => {
-  console.log(`Logged in as ${client.user.tag}!`);
-  client.user.setStatus("idle");
-}); 
