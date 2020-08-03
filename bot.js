@@ -212,24 +212,22 @@ if (message.content.startsWith(prefix + "uptime")) {
 });
 
 
-client.on("message", message => {
-let args = message.content.split(' ');
-  if(args[0].toLowerCase() === (prefix + "server")) {
-  const currentSize = message.guild.members.filter(m => m.voiceChannel).size;
-        let embed = new Discord.RichEmbed()
-        .addField(`:id: Server ID:`, `${message.guild.id}`, true)
-        .addField(`:calendar: Created on:`, `${moment(message.guild.createdAt).format(`D/M/YYYY h:mm`)} \n ${moment(message.guild.createdAt).locale("EN").fromNow()}`,true)
-        .addField(`:crown: Owned by:`, `${message.guild.owner.user}`,true)
-        .addField(`:busts_in_silhouette: Members [${message.guild.members.size}]`, `**${message.guild.members.filter(c => c.presence.status !== "offline").size}** Online`, true)
-        .addField(`:speech_balloon: Channels [${message.guild.channels.size}]`,`**${message.guild.channels.filter(f => f.type === "text").size}** Text | **${message.guild.channels.filter(f => f.type === "voice").size}** Voice`,true)
-        .addField(`:microphone2: Voice Online:`,`[ **${currentSize}** ]`,true)
-        .addField(`:earth_africa: Others`, `**Region:** ${message.guild.region} \n **Verification level:** ${message.guild.verificationLevel}`, true)  
-        .addField(`:closed_lock_with_key: Roles [${message.guild.roles.size}]`, `To see the whole list with all roles use **${prefix}roles**`, true)
-        .setThumbnail(`${message.guild.iconURL}`)
-        .setFooter("© iCannStore, All Rights Reserved 2020")
-        .setAuthor(`${message.guild.name}`, `${message.guild.iconURL}`);
-       
-    message.channel.sendEmbed(embed);
-    }
- 
-});
+client.on('ready', () => {
+            let Games = {
+                1: `):`,
+                2: 'sad.',
+                3: 'forever.'
+            }
+            let i = 1;
+            client.user.setActivity(`${Games [i]}`, {
+                type: 'WATCHING'
+            });
+            setInterval(() => {
+                if (!Games[(i + 1)]) i = 1;
+                else i++;
+                client.user.setActivity(`${Games [i]}`, {
+                    type: 'WATCHING'
+                });
+            }, (10000))//يمديك تخلي ذي الثواني  64 ثانية 
+            console.log(`Logged in as ${client.user.tag}`);
+        });
