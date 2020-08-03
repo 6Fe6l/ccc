@@ -14,7 +14,15 @@ const fs = require("fs");
 client.login(process.env.TOKEN);
 
 
-
+bot.on("ready", async () => {
+  console.log(`${bot.user.username} is ready for action!`);
+  if (config.activity.streaming == true) {
+    bot.user.setActivity(config.activity.game, {url: 'https://www.twitch.tv/shongxbong'});
+  } else {
+    bot.user.setActivity(config.activity.game, {type: 'WATCHING'});//PLAYING, LISTENING, WATCHING
+    bot.user.setStatus('idle'); // dnd, idle, online, invisible
+  }
+});
 
 
 
