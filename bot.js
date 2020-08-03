@@ -231,3 +231,9 @@ client.on('ready', () => {
             }, (10000))//يمديك تخلي ذي الثواني  64 ثانية 
             console.log(`Logged in as ${client.user.tag}`);
         });
+
+
+client.on('ready', () => {
+  console.log(`Logged in as ${client.user.tag}!`);
+  client.user.setStatus("idle");
+}); 
