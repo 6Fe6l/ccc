@@ -166,7 +166,7 @@ message.channel.send({embed});
 
 
 client.on('message', message => {
-if (message.content.startsWith(prefix + "uptime")) {
+if (message.content.startsWith(prefix + "time")) {
   var argresult = message.content.split(` `).slice(1).join(' ');
   
 
