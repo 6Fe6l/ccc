@@ -212,25 +212,7 @@ if (message.content.startsWith(prefix + "uptime")) {
 });
 
 
-client.on('ready', () => {
-            let Games = {
-                1: `):`,
-                2: 'sad.',
-                3: 'forever.'
-            }
-            let i = 1;
-            client.user.setActivity(`${Games [i]}`, {
-                type: 'WATCHING'
-            });
-            setInterval(() => {
-                if (!Games[(i + 1)]) i = 1;
-                else i++;
-                client.user.setActivity(`${Games [i]}`, {
-                    type: 'WATCHING'
-                });
-            }, (10000))//يمديك تخلي ذي الثواني  64 ثانية 
-            console.log(`Logged in as ${client.user.tag}`);
-        });
+
 
 
 client.on('ready', () => {
